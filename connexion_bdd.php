@@ -11,9 +11,4 @@ $bdd = new PDO($dsn, username, password);
 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
              // pour récupérer le résultat des requêtes SELECT sous forme de tableaux associatifs 
 $bdd->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC); 
-?> 
-
-l'instruction ci dessous teste la connexion ; Si la connexion est correcte, supprimer cette instruction : <br>
-<?php 
-var_dump($bdd); 
 ?>
