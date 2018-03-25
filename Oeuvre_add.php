@@ -12,14 +12,13 @@ if (isset($_POST["titre"])
 
     //acces au modele
     $ma_requete_SQL =
-
         "INSERT INTO OEUVRE (noOeuvre,titre,dateParution, idAuteur)
-     VALUES (NULL,'".$donnees['titre']."','".$donnees['titre']."'
+     VALUES (NULL,'".$donnees['titre']."','".$donnees['dateParution']."'
      ,".$donnees['idAuteur'].");";
 
     $bdd->exec($ma_requete_SQL);
 
-    header("Location: Produit_show.php");
+    header("Location: Oeuvre_show.php");
 }
 
 //affichage de la vue
