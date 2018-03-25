@@ -25,6 +25,7 @@ $donnees = $reponse->fetchAll();
                 <th>titre de l'oeuvre</th>
                 <th>identifiant auteur</th>
                 <th>date de parution</th>
+                <th>Operations</th>
             </tr>
         </thead>
         <tbody>
