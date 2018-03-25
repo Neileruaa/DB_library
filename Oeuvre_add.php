@@ -11,7 +11,9 @@ if (isset($_POST["titre"])
     $donnees['idAuteur'] = htmlentities($_POST['idAuteur']);
 
     //acces au modele
-    $ma_requete_SQL ="INSERT INTO OEUVRE (noOeuvre,titre,dateParution, idAuteur)
+    $ma_requete_SQL =
+
+        "INSERT INTO OEUVRE (noOeuvre,titre,dateParution, idAuteur)
      VALUES (NULL,'".$donnees['titre']."','".$donnees['titre']."'
      ,".$donnees['idAuteur'].");";
 
@@ -24,19 +26,23 @@ if (isset($_POST["titre"])
 
 ?>
 
-<form>
+<form method="post" action="Oeuvre_add.php">
     <div class="row">
         <fieldset>
             <legend>Ajouter une Oeuvre</legend>
             <label>Titre
                 <input name="titre" type="text" size="18" value=""/>
+                <br>
             </label>
             <label>Date de parution
                 <input name="dateParution" type="text" size="18" value=""/>
+                <br>
             </label>
             <label>identifiant de l'auteur
                 <input name="idAuteur" type="text" size="18" value="1"/>
+                <br>
             </label>
+            <br>
             <input type="submit" name="AddOeuvre" value="Ajouter une oeuvre">
         </fieldset>
     </div>
