@@ -17,6 +17,7 @@ if (isset($_POST["titre"]) AND
     isset($_POST["dateParution"])AND
     isset($_POST["idAuteur"])AND
     isset($_POST["noOeuvre"])){
+
     $donnees['titre']=$_POST['titre'];
     $donnees['dateParution']=htmlentities($_POST['dateParution']);
     $donnees['idAuteur']=htmlentities($_POST['idAuteur']);
