@@ -29,11 +29,7 @@ $donnees = $reponse->fetchAll();
                 <th>Nom</th>
                 <th>adresse</th>
                 <th>date paiement</th>
-                <th>id</th>
-                <th>Nb Emprunt</th>
-                <th>Retard</th>
-                <th>RetardProche</th>
-                <th>DatePaiementFutur</th>
+                <th>Informations</th>
                 <th>Opérations</th>
             </tr>
         </thead>
@@ -50,19 +46,11 @@ $donnees = $reponse->fetchAll();
                     <?= $value['datePaiement'] ?>
                 </td>
                 <td>
-                    <?= $value['idAdherent'] ?>
-                </td>
-                <td>
-                    <?= $value['nbrEmprunt'] ?>
-                </td>
-                <td>
-                    <?= $value['retard'] ?>
-                </td>
-                <td>
-                    <?= $value['retardProche'] ?>
-                </td>
-                <td>
-                    <?= $value['datePaiementFutur'] ?>
+                    <?php if($value['nbrEmprunt'] != 0){ echo $value['nbrEmprunt']." emprunt(s) en cours"; }
+                    if(($value['retardProche'] != 0) AND ($value['retard'])==0){ echo "Paiement à renouveler"; }
+                    if(($value['retardProche'] != 0) AND ($value['retard'])!=0){ echo "<p style='color: red'>Paiement en retard depuis le ".$value['datePaiementFutur']; }
+
+                    ?>
                 </td>
                 <td>
                     <a href="Adherent_edit.php?id=<?= $value['idAdherent'] ?>">Modifier</a>
