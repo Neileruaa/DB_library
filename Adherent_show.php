@@ -1,5 +1,7 @@
 <?php
 include("connexion_bdd.php");
+include 'v_head.php';
+include 'v_nav.php';
 
 $ma_requete_SQL = "SELECT ADHERENT.nomAdherent,
   ADHERENT.adresse,

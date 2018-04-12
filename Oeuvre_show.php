@@ -1,6 +1,8 @@
 <?php
 //partie modele
 include("connexion_bdd.php");
+include 'v_head.php';
+include 'v_nav.php';
 
 $ma_requete_SQL = "SELECT oe.titre, 
 oe.noOeuvre, 
