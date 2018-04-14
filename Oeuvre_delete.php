@@ -32,5 +32,5 @@ if (isset($_GET["id"])AND is_numeric($_GET["id"])) {
     </ul>
 
     Supprimer définitivement l'oeuvre ?
-    <a href="Oeuvre_delete_def.php?id="<?= $_GET['id'] ?>>Supprimer</a>
+    <a href="Oeuvre_delete_def.php?id=<?= $id ?>">Supprimer</a>
 </div>
