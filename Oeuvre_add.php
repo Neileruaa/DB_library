@@ -17,7 +17,6 @@ if (isset($_POST["titre"])
      ,".$donnees['idAuteur'].");";
 
     $bdd->exec($ma_requete_SQL);
-
     header("Location: Oeuvre_show.php");
 }
 
