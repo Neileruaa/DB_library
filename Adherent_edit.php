@@ -24,6 +24,7 @@ isset($_POST["idAdherent"])) {
 
     $sql =
         "UPDATE ADHERENT SET
+          idAdherent='{$donnees['idAdherent']}',
           nomAdherent='{$donnees['nomAdherent']}',
           datePaiement='{$donnees['datePaiement']}',
           adresse = '{$donnees['adresse']}'
