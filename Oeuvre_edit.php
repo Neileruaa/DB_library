@@ -8,15 +8,20 @@ if(isset($_GET["id"]) AND is_numeric($_GET["id"])){
         FROM OEUVRE oe
         WHERE oe.noOeuvre=".$id.";";
     $reponse = $bdd ->query($ma_requete_SQL);
-
     $donnees= $reponse -> fetch();
+
+    $sql=
+        "SELECT idAuteur FROM AUTEUR;";
+    $reponse = $bdd->query($sql);
+    $list_Auteur = $reponse->fetchAll();
 }
 
 
 if (isset($_POST["titre"]) AND
     isset($_POST["dateParution"])AND
     isset($_POST["idAuteur"])AND
-    isset($_POST["noOeuvre"])){
+    isset($_POST["noOeuvre"]) AND
+    isset($_POST['ModifierOeuvre'])){
 
     $donnees['titre']=$_POST['titre'];
     $donnees['dateParution']=htmlentities($_POST['dateParution']);
@@ -29,10 +34,7 @@ if (isset($_POST["titre"]) AND
         dateParution='".$donnees['dateParution']."',
         idAuteur=".$donnees['idAuteur']."
         WHERE noOeuvre=".$donnees['noOeuvre'].";";
-
-    var_dump($ma_requete_SQL);
     $bdd->exec($ma_requete_SQL);
-
     header("Location: Oeuvre_show.php");
 }
 
@@ -47,13 +49,19 @@ if (isset($_POST["titre"]) AND
             <label> Titre
                    <input name="titre" type="text" size="18" value="<?php if(isset($donnees['titre'])) echo $donnees['titre'];?>">
             </label>
+            <br><br>
             <label> Date de parution
-                <input name="dateParution" type="text" size="18" value="<?php if(isset($donnees['dateParution'])) echo $donnees['dateParution'];?>">
+                <input name="dateParution" type="date" value="<?php if(isset($donnees['dateParution'])) echo $donnees['dateParution'];?>">
             </label>
+            <br><br>
             <label>Identifiant de l'auteur
-                <input name="idAuteur" type="text" size="18" value="<?php if(isset($donnees['idAuteur'])) echo $donnees['idAuteur'];?>">
+                <select name="idAuteur">
+                    <?php foreach ($list_Auteur as $Auteur){ ?>
+                        <option value="<?= $Auteur['idAuteur'] ?>" ><?= $Auteur['idAuteur'] ?></option>
+                    <?php } ?>
+                </select>
             </label>
-
+            <br><br>
             <input type="submit" name="ModifierOeuvre" value="Modifier">
         </fieldset>
     </div>
