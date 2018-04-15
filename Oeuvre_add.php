@@ -2,6 +2,11 @@
 include "connexion_bdd.php";
 //traitement
 
+$sql=
+    "SELECT idAuteur,nomAuteur, prenomAuteur FROM AUTEUR;";
+$reponse = $bdd->query($sql);
+$list_Auteur = $reponse->fetchAll();
+
 if (isset($_POST["titre"])
     AND isset($_POST["dateParution"])
     AND isset($_POST['idAuteur'])){
@@ -37,8 +42,12 @@ if (isset($_POST["titre"])
                 <br>
             </label>
             <label>identifiant de l'auteur
-                <input name="idAuteur" type="text" size="18" value="1"/>
-                <br>
+                <select name="idAuteur">
+                    <?php foreach ($list_Auteur as $Auteur){ ?>
+                        <option value="<?= $Auteur['idAuteur'] ?>" ><?=$Auteur['idAuteur']?> : <?=$Auteur['prenomAuteur']?> <?=$Auteur['nomAuteur']?></option>
+                    <?php } ?>
+                </select>
+            <br>
             </label>
             <br>
             <input type="submit" name="AddOeuvre" value="Ajouter une oeuvre">
