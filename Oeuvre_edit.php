@@ -16,7 +16,6 @@ if(isset($_GET["id"]) AND is_numeric($_GET["id"])){
     $list_Auteur = $reponse->fetchAll();
 }
 
-
 if (isset($_POST["titre"]) AND
     isset($_POST["dateParution"])AND
     isset($_POST["idAuteur"])AND

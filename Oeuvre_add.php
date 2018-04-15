@@ -20,7 +20,6 @@ if (isset($_POST["titre"])
         "INSERT INTO OEUVRE (noOeuvre,titre,dateParution, idAuteur)
      VALUES (NULL,'".$donnees['titre']."','".$donnees['dateParution']."'
      ,".$donnees['idAuteur'].");";
-
     $bdd->exec($ma_requete_SQL);
     header("Location: Oeuvre_show.php");
 }
@@ -35,21 +34,20 @@ if (isset($_POST["titre"])
             <legend>Ajouter une Oeuvre</legend>
             <label>Titre
                 <input name="titre" type="text" size="18" value=""/>
-                <br>
+            <br><br>
             </label>
             <label>Date de parution
-                <input name="dateParution" type="text" size="18" value=""/>
-                <br>
+                <input type="date" name="dateParution" size="18">
             </label>
+            <br><br>
             <label>identifiant de l'auteur
                 <select name="idAuteur">
                     <?php foreach ($list_Auteur as $Auteur){ ?>
                         <option value="<?= $Auteur['idAuteur'] ?>" ><?=$Auteur['idAuteur']?> : <?=$Auteur['prenomAuteur']?> <?=$Auteur['nomAuteur']?></option>
                     <?php } ?>
                 </select>
-            <br>
             </label>
-            <br>
+            <br><br>
             <input type="submit" name="AddOeuvre" value="Ajouter une oeuvre">
         </fieldset>
     </div>

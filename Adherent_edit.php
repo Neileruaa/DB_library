@@ -8,7 +8,6 @@ if(isset($_GET["id"]) AND is_numeric($_GET["id"])){
         FROM ADHERENT ad
         WHERE ad.idAdherent=".$id.";";
     $reponse = $bdd ->query($ma_requete_SQL);
-
     $donnees= $reponse -> fetch();
 }
 
