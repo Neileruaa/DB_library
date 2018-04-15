@@ -11,7 +11,7 @@ if(isset($_GET["id"]) AND is_numeric($_GET["id"])){
     $donnees= $reponse -> fetch();
 
     $sql=
-        "SELECT idAuteur FROM AUTEUR;";
+        "SELECT idAuteur,nomAuteur, prenomAuteur FROM AUTEUR;";
     $reponse = $bdd->query($sql);
     $list_Auteur = $reponse->fetchAll();
 }
@@ -51,13 +51,13 @@ if (isset($_POST["titre"]) AND
             </label>
             <br><br>
             <label> Date de parution
-                <input name="dateParution" type="date" value="<?php if(isset($donnees['dateParution'])) echo $donnees['dateParution'];?>">
+                <input type="date" name="dateParution" size="18" value="<?php if(isset($donnees['dateParution']))echo $donnees['dateParution']?>">
             </label>
             <br><br>
             <label>Identifiant de l'auteur
                 <select name="idAuteur">
                     <?php foreach ($list_Auteur as $Auteur){ ?>
-                        <option value="<?= $Auteur['idAuteur'] ?>" ><?= $Auteur['idAuteur'] ?></option>
+                        <option value="<?= $Auteur['idAuteur'] ?>" ><?=$Auteur['idAuteur']?> : <?=$Auteur['prenomAuteur']?> <?=$Auteur['nomAuteur']?></option>
                     <?php } ?>
                 </select>
             </label>
